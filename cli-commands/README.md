@@ -1,5 +1,4 @@
-####
-Install docker on Ubuntu
+#### Install docker on Ubuntu
 
 ```sh
 sudo apt-get update -y
