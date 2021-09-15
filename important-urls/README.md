@@ -9,3 +9,4 @@
 * Kubernetes documentation : https://kubernetes.io/docs/home/
 * Docker hub : https://hub.docker.com
 * Terraform AWS provider documentation : https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+* AWS Workshops : https://workshops.aws/
