@@ -46,3 +46,13 @@ sudo docker build -t ws-calc:v1 .
 ```sh
 sudo docker run -d -p 80:80 ws-calc:v1
 ```
+
+#### Rename the docker image  
+```sh
+sudo docker tag <old image name> <new image name>
+```
+
+#### Push docker image to registry  
+```sh
+sudo docker push <image name>
+```
