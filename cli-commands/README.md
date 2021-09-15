@@ -8,3 +8,18 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] 
 sudo apt-get update -y
 sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 ```
+
+#### Clone the repository
+```sh
+git clone https://github.com/varunelavia/aws-ws.git
+```
+
+#### Build docker image from docker file
+```sh
+sudo docker build -t ws-calc:v1 .
+```
+
+#### Run the docker container 
+```sh
+sudo docker run -d -p 80:80 ws-calc:v1
+```
