@@ -11,3 +11,7 @@
 * Terraform AWS provider documentation : https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 * AWS Workshops : https://workshops.aws/
 * AWS Events : https://aws.amazon.com/events/
+* https://training.play-with-kubernetes.com/
+* https://training.play-with-docker.com/
+* https://labs.play-with-k8s.com/
+* https://labs.play-with-docker.com/
