@@ -5,6 +5,15 @@ sudo apt-get install tasksel -y
 sudo tasksel install lamp-server
 ```
 
+#### Clone the repository
+```sh
+git clone https://github.com/varunelavia/aws-ws.git
+```
+
+#### Copy app files to /var/www/html
+```sh
+cp -r aws-ws/web-app/* /var/www/html/
+```
 #### Install docker on Ubuntu
 
 ```sh
@@ -16,10 +25,7 @@ sudo apt-get update -y
 sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 ```
 
-#### Clone the repository
-```sh
-git clone https://github.com/varunelavia/aws-ws.git
-```
+
 
 #### Build docker image from docker file
 ```sh
