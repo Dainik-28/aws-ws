@@ -12,7 +12,7 @@ git clone https://github.com/varunelavia/aws-ws.git
 
 #### Copy app files to /var/www/html
 ```sh
-cp -r aws-ws/web-app/* /var/www/html/
+sudo cp -r aws-ws/web-app/* /var/www/html/
 ```
 #### Install docker on Ubuntu
 
