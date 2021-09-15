@@ -1,3 +1,14 @@
+#### Change permissions of the SSH Private key file
+```sh
+chmod 400 <filename>
+```
+
+#### SSH into the server
+```sh
+ssh -i <ssh key filename> <username>@<ip>
+sh
+```
+
 #### Install LAMP Server on Ubuntu
 ```sh
 sudo apt-get update -y
