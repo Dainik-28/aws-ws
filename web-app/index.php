@@ -25,8 +25,10 @@
             $result = "Invalid Operator";
         }
         ?>
-        <script>alert("Result is : <?php echo $result; ?>")</script>
-        <?php
+<script>
+alert("Result is : <?php echo $result; ?>")
+</script>
+<?php
     }
 ?>
 <!DOCTYPE html>
