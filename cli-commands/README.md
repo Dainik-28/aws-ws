@@ -1,3 +1,10 @@
+#### Install LAMP Server on Ubuntu
+```sh
+sudo apt-get update -y
+sudo apt-get install tasksel -y
+sudo tasksel install lamp-server
+```
+
 #### Install docker on Ubuntu
 
 ```sh
