@@ -61,3 +61,11 @@ sudo docker push <image name>
 ```sh
 sudo systemctl enable apache2.service
 ```
+
+### Command to stress the VM
+```sh
+#!/bin/bash
+apt-get update -y
+apt-get install stress -y
+stress -t 300 --cpu 10
+```
