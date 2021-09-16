@@ -50,7 +50,11 @@ alert("Result is : <?php echo $result; ?>")
         <div class="row">
             <div class="col"></div>
             <div class="col">
-                <h4>My Calculator</h4>
+                <h4>My Calculator <?php 
+                if (getenv('HOSTED_REGION') !== false)
+                 { 
+                    echo "in ".getenv('HOSTED_REGION');
+                }?></h4>
                 <form action="/" method="post">
                     <div class="form-group">
                         <label for="num1">num1:</label>
