@@ -16,3 +16,15 @@ output "Asia_App_URL_simple_route" {
 output "Europe_App_URL_simple_route" {
   value = aws_route53_record.eu-simple.name
 }
+output "URL_for_Geolocation_based_routing" {
+  value = "geo.${var.student_id}.cgpit.xyz"
+}
+output "URL_for_Weighted_routing" {
+  value = "weighted.${var.student_id}.cgpit.xyz"
+}
+output "URL_for_Latency_based_routing" {
+  value = "latency.${var.student_id}.cgpit.xyz"
+}
+output "URL_for_failover_routing" {
+  value = "failover.${var.student_id}.cgpit.xyz"
+}
