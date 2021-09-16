@@ -11,6 +11,47 @@ resource "aws_route53_record" "ns" {
   ttl      = "3"
   records  = aws_route53_zone.student.name_servers
 }
+
+### Healthchecks
+resource "aws_route53_health_check" "us" {
+  provider          = aws.us
+  fqdn              = aws_apprunner_service.us.service_url
+  port              = 443
+  type              = "HTTPS"
+  resource_path     = "/"
+  failure_threshold = "1"
+  request_interval  = "10"
+
+  tags = {
+    Name = "us-app-hc"
+  }
+}
+resource "aws_route53_health_check" "ap" {
+  provider          = aws.ap
+  fqdn              = aws_apprunner_service.ap.service_url
+  port              = 443
+  type              = "HTTPS"
+  resource_path     = "/"
+  failure_threshold = "1"
+  request_interval  = "10"
+
+  tags = {
+    Name = "ap-app-hc"
+  }
+}
+resource "aws_route53_health_check" "eu" {
+  provider          = aws.eu
+  fqdn              = aws_apprunner_service.eu.service_url
+  port              = 443
+  type              = "HTTPS"
+  resource_path     = "/"
+  failure_threshold = "1"
+  request_interval  = "10"
+
+  tags = {
+    Name = "eu-app-hc"
+  }
+}
 ### Simple DNS Records for APP 
 resource "aws_route53_record" "us-simple" {
   provider = aws.us
