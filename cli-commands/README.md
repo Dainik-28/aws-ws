@@ -39,12 +39,12 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 
 #### Build docker image from docker file
 ```sh
-sudo docker build -t ws-calc:v1 .
+sudo docker build -t php-calc:v1 .
 ```
 
 #### Run the docker container 
 ```sh
-sudo docker run -d -p 80:80 ws-calc:v1
+sudo docker run -d -p 80:80 php-calc:v1
 ```
 
 #### Rename the docker image  
