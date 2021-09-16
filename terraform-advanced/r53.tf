@@ -5,7 +5,7 @@ resource "aws_route53_zone" "student" {
 
 resource "aws_route53_record" "ns" {
   provider = aws.host_account
-  zone_id  = "Z053105576KXNEFWGZZ9"
+  zone_id  = var.root_zone_id
   name     = "${var.student_id}.cgpit.xyz"
   type     = "NS"
   ttl      = "3"
@@ -51,31 +51,6 @@ resource "aws_route53_health_check" "eu" {
   tags = {
     Name = "eu-app-hc"
   }
-}
-### Simple DNS Records for APP 
-resource "aws_route53_record" "us-simple" {
-  provider = aws.us
-  zone_id  = aws_route53_zone.student.zone_id
-  name     = "us-simple.${var.student_id}.cgpit.xyz"
-  type     = "CNAME"
-  ttl      = "3"
-  records  = [aws_apprunner_service.us.service_url]
-}
-resource "aws_route53_record" "ap-simple" {
-  provider = aws.ap
-  zone_id  = aws_route53_zone.student.zone_id
-  name     = "ap-simple.${var.student_id}.cgpit.xyz"
-  type     = "CNAME"
-  ttl      = "3"
-  records  = [aws_apprunner_service.ap.service_url]
-}
-resource "aws_route53_record" "eu-simple" {
-  provider = aws.eu
-  zone_id  = aws_route53_zone.student.zone_id
-  name     = "eu-simple.${var.student_id}.cgpit.xyz"
-  type     = "CNAME"
-  ttl      = "3"
-  records  = [aws_apprunner_service.eu.service_url]
 }
 
 ### Domain Validation Records for simple routes

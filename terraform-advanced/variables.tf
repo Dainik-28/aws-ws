@@ -22,3 +22,6 @@ variable "host_access_key" {
 variable "host_secret_key" {
   type = string
 }
+variable "root_zone_id" {
+  type = string
+}
