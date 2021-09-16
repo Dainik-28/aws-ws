@@ -37,7 +37,7 @@ resource "aws_route53_record" "eu-simple" {
   records  = [aws_apprunner_service.eu.service_url]
 }
 
-### Domain Validation Records
+### Domain Validation Records for simple routes
 resource "aws_route53_record" "us-simple-domain-validation" {
   count    = 3
   provider = aws.us
@@ -64,4 +64,119 @@ resource "aws_route53_record" "eu-simple-domain-validation" {
   type     = "CNAME"
   ttl      = "3"
   records  = [tolist(aws_apprunner_custom_domain_association.eu-simple.certificate_validation_records)[count.index].value]
+}
+
+### Domain Validation Records for Geolocation based routes
+resource "aws_route53_record" "us-geo-domain-validation" {
+  count    = 3
+  provider = aws.us
+  zone_id  = aws_route53_zone.student.zone_id
+  name     = tolist(aws_apprunner_custom_domain_association.us-geo.certificate_validation_records)[count.index].name
+  type     = "CNAME"
+  ttl      = "3"
+  records  = [tolist(aws_apprunner_custom_domain_association.us-geo.certificate_validation_records)[count.index].value]
+}
+resource "aws_route53_record" "ap-geo-domain-validation" {
+  count    = 3
+  provider = aws.ap
+  zone_id  = aws_route53_zone.student.zone_id
+  name     = tolist(aws_apprunner_custom_domain_association.ap-geo.certificate_validation_records)[count.index].name
+  type     = "CNAME"
+  ttl      = "3"
+  records  = [tolist(aws_apprunner_custom_domain_association.ap-geo.certificate_validation_records)[count.index].value]
+}
+resource "aws_route53_record" "eu-geo-domain-validation" {
+  count    = 3
+  provider = aws.eu
+  zone_id  = aws_route53_zone.student.zone_id
+  name     = tolist(aws_apprunner_custom_domain_association.eu-geo.certificate_validation_records)[count.index].name
+  type     = "CNAME"
+  ttl      = "3"
+  records  = [tolist(aws_apprunner_custom_domain_association.eu-geo.certificate_validation_records)[count.index].value]
+}
+
+### Domain Validation Records for Weighted routes
+resource "aws_route53_record" "us-weighted-domain-validation" {
+  count    = 3
+  provider = aws.us
+  zone_id  = aws_route53_zone.student.zone_id
+  name     = tolist(aws_apprunner_custom_domain_association.us-weighted.certificate_validation_records)[count.index].name
+  type     = "CNAME"
+  ttl      = "3"
+  records  = [tolist(aws_apprunner_custom_domain_association.us-weighted.certificate_validation_records)[count.index].value]
+}
+resource "aws_route53_record" "ap-weighted-domain-validation" {
+  count    = 3
+  provider = aws.ap
+  zone_id  = aws_route53_zone.student.zone_id
+  name     = tolist(aws_apprunner_custom_domain_association.ap-weighted.certificate_validation_records)[count.index].name
+  type     = "CNAME"
+  ttl      = "3"
+  records  = [tolist(aws_apprunner_custom_domain_association.ap-weighted.certificate_validation_records)[count.index].value]
+}
+resource "aws_route53_record" "eu-weighted-domain-validation" {
+  count    = 3
+  provider = aws.eu
+  zone_id  = aws_route53_zone.student.zone_id
+  name     = tolist(aws_apprunner_custom_domain_association.eu-weighted.certificate_validation_records)[count.index].name
+  type     = "CNAME"
+  ttl      = "3"
+  records  = [tolist(aws_apprunner_custom_domain_association.eu-weighted.certificate_validation_records)[count.index].value]
+}
+
+### Domain Validation Records for Latency based routes
+resource "aws_route53_record" "us-latency-domain-validation" {
+  count    = 3
+  provider = aws.us
+  zone_id  = aws_route53_zone.student.zone_id
+  name     = tolist(aws_apprunner_custom_domain_association.us-latency.certificate_validation_records)[count.index].name
+  type     = "CNAME"
+  ttl      = "3"
+  records  = [tolist(aws_apprunner_custom_domain_association.us-latency.certificate_validation_records)[count.index].value]
+}
+resource "aws_route53_record" "ap-latency-domain-validation" {
+  count    = 3
+  provider = aws.ap
+  zone_id  = aws_route53_zone.student.zone_id
+  name     = tolist(aws_apprunner_custom_domain_association.ap-latency.certificate_validation_records)[count.index].name
+  type     = "CNAME"
+  ttl      = "3"
+  records  = [tolist(aws_apprunner_custom_domain_association.ap-latency.certificate_validation_records)[count.index].value]
+}
+resource "aws_route53_record" "eu-latency-domain-validation" {
+  count    = 3
+  provider = aws.eu
+  zone_id  = aws_route53_zone.student.zone_id
+  name     = tolist(aws_apprunner_custom_domain_association.eu-latency.certificate_validation_records)[count.index].name
+  type     = "CNAME"
+  ttl      = "3"
+  records  = [tolist(aws_apprunner_custom_domain_association.eu-latency.certificate_validation_records)[count.index].value]
+}
+### Domain Validation Records for failover based routes
+resource "aws_route53_record" "us-failover-domain-validation" {
+  count    = 3
+  provider = aws.us
+  zone_id  = aws_route53_zone.student.zone_id
+  name     = tolist(aws_apprunner_custom_domain_association.us-failover.certificate_validation_records)[count.index].name
+  type     = "CNAME"
+  ttl      = "3"
+  records  = [tolist(aws_apprunner_custom_domain_association.us-failover.certificate_validation_records)[count.index].value]
+}
+resource "aws_route53_record" "ap-failover-domain-validation" {
+  count    = 3
+  provider = aws.ap
+  zone_id  = aws_route53_zone.student.zone_id
+  name     = tolist(aws_apprunner_custom_domain_association.ap-failover.certificate_validation_records)[count.index].name
+  type     = "CNAME"
+  ttl      = "3"
+  records  = [tolist(aws_apprunner_custom_domain_association.ap-failover.certificate_validation_records)[count.index].value]
+}
+resource "aws_route53_record" "eu-failover-domain-validation" {
+  count    = 3
+  provider = aws.eu
+  zone_id  = aws_route53_zone.student.zone_id
+  name     = tolist(aws_apprunner_custom_domain_association.eu-failover.certificate_validation_records)[count.index].name
+  type     = "CNAME"
+  ttl      = "3"
+  records  = [tolist(aws_apprunner_custom_domain_association.eu-failover.certificate_validation_records)[count.index].value]
 }
