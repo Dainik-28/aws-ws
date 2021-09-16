@@ -1,35 +1,25 @@
 <?php
-    if(isset($_REQUEST["submit"]))
-    {
-        $num1 = $_REQUEST["num1"];
-        $num2 = $_REQUEST["num2"];
-        $operator = $_REQUEST["operator"];
-        if($operator == "+")
-        {
-            $result = $num1 + $num2;
-        }
-        elseif($operator == "-")
-        {
-            $result = $num1 - $num2;
-        }
-        elseif($operator == "*")
-        {
-            $result = $num1 * $num2;
-        }
-        elseif($operator == "/")
-        {
-            $result = $num1 / $num2;
-        }
-        else
-        {
-            $result = "Invalid Operator";
-        }
-        ?>
+if (isset($_REQUEST["submit"])) {
+    $num1 = $_REQUEST["num1"];
+    $num2 = $_REQUEST["num2"];
+    $operator = $_REQUEST["operator"];
+    if ($operator == "+") {
+        $result = $num1 + $num2;
+    } elseif ($operator == "-") {
+        $result = $num1 - $num2;
+    } elseif ($operator == "*") {
+        $result = $num1 * $num2;
+    } elseif ($operator == "/") {
+        $result = $num1 / $num2;
+    } else {
+        $result = "Invalid Operator";
+    }
+    ?>
 <script>
 alert("Result is : <?php echo $result; ?>")
 </script>
 <?php
-    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,11 +40,10 @@ alert("Result is : <?php echo $result; ?>")
         <div class="row">
             <div class="col"></div>
             <div class="col">
-                <h4>My Calculator <?php 
-                if (getenv('HOSTED_REGION') !== false)
-                 { 
-                    echo "in ".getenv('HOSTED_REGION');
-                }?></h4>
+                <h4>My Calculator <?php
+if (getenv('HOSTED_REGION') !== false) {
+    echo "in " . getenv('HOSTED_REGION');
+}?></h4>
                 <form action="/" method="post">
                     <div class="form-group">
                         <label for="num1">num1:</label>
