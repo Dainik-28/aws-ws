@@ -18,3 +18,10 @@ provider "aws" {
   access_key = var.student_access_key
   secret_key = var.student_secret_key
 }
+
+provider "aws" {
+  alias      = "host_account"
+  region     = "us-east-1"
+  access_key = var.host_access_key
+  secret_key = var.host_secret_key
+}
