@@ -56,3 +56,8 @@ sudo docker tag <old image name> <new image name>
 ```sh
 sudo docker push <image name>
 ```
+
+### Start apache on boot
+```sh
+sudo systemctl enable apache2.service
+```
